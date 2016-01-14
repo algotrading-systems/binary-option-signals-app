@@ -12,14 +12,16 @@
     <body>
         <header class="bar bar-nav">
             <div class="segmented-control">
-                <a class="control-item active">15 min</a>
-                <a class="control-item">30 min</a>
-                <a class="control-item">1 Hour</a>
+                <a class="control-item active" data-time-frame="900">15 min</a>
+                <a class="control-item" data-time-frame="1800">30 min</a>
+                <a class="control-item" data-time-frame="3600">1 Hour</a>
             </div>
         </header>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/ratchet/dist/js/ratchet.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
