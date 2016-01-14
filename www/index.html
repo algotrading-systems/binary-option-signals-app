@@ -6,17 +6,19 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="bower_components/ratchet/dist/css/ratchet.min.css" />
         <title>Binary Options Signals Source</title>
     </head>
     <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <header class="bar bar-nav">
+            <div class="segmented-control">
+                <a class="control-item active">15 min</a>
+                <a class="control-item">30 min</a>
+                <a class="control-item">1 Hour</a>
             </div>
-        </div>
+        </header>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="bower_components/ratchet/dist/js/ratchet.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
