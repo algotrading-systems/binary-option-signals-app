@@ -4,3 +4,6 @@
 # Platforms and plugins
 /platforms
 /plugins
+
+# Bower components
+/www/bower_components

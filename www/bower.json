@@ -1,0 +1,25 @@
+{
+  "name": "Binary Options Signals Source",
+  "homepage": "https://github.com/algotrading-systems/binary-options-signals-source",
+  "authors": [
+    "AlgoTrading.Systems <support@algotrading.systems>"
+  ],
+  "description": "Trade signals for binary options",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "Binary",
+    "Options",
+    "Trade",
+    "Signals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
