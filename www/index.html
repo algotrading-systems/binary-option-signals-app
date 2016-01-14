@@ -17,10 +17,20 @@
                 <a class="control-item" data-time-frame="3600">1 Hour</a>
             </div>
         </header>
+        <div class="bar bar-header-secondary bar-standard">
+            <div id="signals-table-container">
+                <ul class="table-view" id="signals-table">
+
+                </ul>
+            </div>
+        </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="bower_components/react/react.js"></script>
+        <script type="text/javascript" src="bower_components/react/react-dom.js"></script>
         <script type="text/javascript" src="bower_components/ratchet/dist/js/ratchet.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/signals-table.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript">
             app.initialize();
