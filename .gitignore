@@ -1,2 +1,6 @@
 # JetBrains IDE
 .idea
+
+# Platforms and plugins
+/platforms
+/plugins
