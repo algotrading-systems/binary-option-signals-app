@@ -3,8 +3,8 @@
 (function (window) {
 
     ReactDOM.render(
-        React.createElement(HelloMessage, null),
-        document.getElementById('signals-table')
+        React.createElement(SignalsTable, null),
+        window.document.getElementById('signals-table')
     );
 
     $('.segmented-control a').click(function () {

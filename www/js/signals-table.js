@@ -1,7 +1,7 @@
 "use strict";
 
-var HelloMessage = React.createClass({
-    displayName: "HelloMessage",
+var SignalsTable = React.createClass({
+    displayName: "SignalsTable",
 
     render: function render() {
         return React.createElement(
