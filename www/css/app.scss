@@ -1,0 +1,18 @@
+.signal {
+  li {
+    list-style: none;
+    display: inline-block;
+    &.symbol{
+      width: 25%;
+    }
+    &.direction{
+      width: 25%;
+    }
+    &.time{
+      width: 25%;
+    }
+    &.reliability{
+      width: 25%;
+    }
+  }
+}

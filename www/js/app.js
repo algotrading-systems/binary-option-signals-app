@@ -17,15 +17,20 @@
     var getSignals = function(count){
         var symbols = ['USDJPY', 'EURUSD', 'Silver', 'Gold'];
         var directions = ['Call', 'Put'];
+        var reliabilities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         var signals = [];
         count = count || 10;
         for(var i = 0; i < count; i++){
             var signal = {
+                key: i + 1,
                 symbol: $.rand(symbols),
-                direction: $.rand(directions)
+                direction: $.rand(directions),
+                time: (new Date()).toLocaleString('en-US', {hour12: false}),
+                reliability: $.rand(reliabilities)
             };
             signals.push(signal);
         }
+        console.log(signals);
         return signals;
     };
 
@@ -33,7 +38,7 @@
 
     ReactDOM.render(
         React.createElement(SignalsTable, {signals: signals}),
-        window.document.getElementById('signals-table')
+        window.document.getElementById('signals-table-container')
     );
 
     $('.segmented-control a').click(function () {

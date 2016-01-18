@@ -1,0 +1,13 @@
+.signal li {
+  list-style: none;
+  display: inline-block; }
+  .signal li.symbol {
+    width: 25%; }
+  .signal li.direction {
+    width: 25%; }
+  .signal li.time {
+    width: 25%; }
+  .signal li.reliabili {
+    width: 25%; }
+
+/*# sourceMappingURL=app.css.map */
