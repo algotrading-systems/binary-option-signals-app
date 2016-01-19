@@ -1,5 +1,12 @@
 $colorWhite: #ffffff;
 
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
 .app{
   background: url('../img/MainAppBackground.scale-240.png') center center no-repeat;
   background-size: cover;

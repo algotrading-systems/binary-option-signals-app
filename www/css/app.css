@@ -1,7 +1,13 @@
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%; }
+
 .app {
   background: url("../img/MainAppBackground.scale-240.png") center center no-repeat;
   background-size: cover;
-  color: #ffffff; }
+  color: white; }
   .app .wobg {
     background: none; }
   .app .bar {
@@ -62,5 +68,3 @@
     .signal li.reliability.reliability-10 {
       background: url("../img/levels/336x158/level_10.png") center center no-repeat;
       background-size: contain; }
-
-/*# sourceMappingURL=app.css.map */
