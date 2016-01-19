@@ -7,12 +7,26 @@
     }
     &.direction{
       width: 25%;
+      &.direction-up{
+        background: url('../img/arrows/336x158/up.png') center center no-repeat;
+        background-size: contain;
+      }
+      &.direction-down{
+        background: url('../img/arrows/336x158/down.png') center center no-repeat;
+        background-size: contain;
+      }
     }
     &.time{
       width: 25%;
     }
     &.reliability{
       width: 25%;
+      @for $i from 0 through 10 {
+        &.reliability-#{$i} {
+          background: url('../img/levels/336x158/level_#{$i}.png') center center no-repeat;
+          background-size: contain;
+        }
+      }
     }
   }
 }

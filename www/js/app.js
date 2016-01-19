@@ -25,7 +25,7 @@
                 key: i + 1,
                 symbol: $.rand(symbols),
                 direction: $.rand(directions),
-                time: (new Date()).toLocaleString('en-US', {hour12: false}),
+                time: (new Date()).toTimeString().substr(0, 8),
                 reliability: $.rand(reliabilities)
             };
             signals.push(signal);

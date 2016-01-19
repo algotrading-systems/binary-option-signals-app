@@ -9,6 +9,7 @@ var SignalsTable = React.createClass({
             "ul",
             { className: "table-view", id: "signals-table" },
             signals.map(function (signal) {
+                var directionClassName = 'direction direction-' + signal.direction.toString().toLowerCase();
                 var reliabilityClassName = 'reliability reliability-' + signal.reliability;
                 return React.createElement(
                     "li",
@@ -23,7 +24,7 @@ var SignalsTable = React.createClass({
                         ),
                         React.createElement(
                             "li",
-                            { className: "direction" },
+                            { className: directionClassName },
                             signal.direction
                         ),
                         React.createElement(
@@ -34,7 +35,7 @@ var SignalsTable = React.createClass({
                         React.createElement(
                             "li",
                             { className: reliabilityClassName },
-                            signal.reliability
+                            " "
                         )
                     )
                 );
