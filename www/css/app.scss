@@ -1,10 +1,11 @@
 $colorWhite: #ffffff;
+$colorBlack: #000000;
+$colorOrange: #D53301;
+$colorGreen: #6ADC00;
+$colorGrey: #666666;
 
-html {
+html, body {
   height: 100%;
-}
-body {
-  min-height: 100%;
 }
 
 .app{
@@ -12,16 +13,29 @@ body {
   background-size: cover;
   color: $colorWhite;
 
-  .wobg{
-    background: none;
-  }
-
   .bar{
     border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .segmented-control{
+      background-color: rgba(0, 0, 0, 0.5);
+      border-color: $colorGrey;
+      .control-item{
+        background-color: rgba(0, 0, 0, 0.75);
+        border-color: $colorGrey;
+        color: $colorOrange;
+        &.active{
+          background-color: $colorOrange;
+          color: $colorWhite;
+        }
+      }
+    }
+
   }
 
   .table-view{
-    background: none;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid $colorGrey;
   }
 
   .table-view-cell{

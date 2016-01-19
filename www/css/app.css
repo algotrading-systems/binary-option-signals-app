@@ -1,19 +1,26 @@
-html {
+html, body {
   height: 100%; }
-
-body {
-  min-height: 100%; }
 
 .app {
   background: url("../img/MainAppBackground.scale-240.png") center center no-repeat;
   background-size: cover;
   color: white; }
-  .app .wobg {
-    background: none; }
   .app .bar {
-    border: none; }
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5); }
+    .app .bar .segmented-control {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-color: #666666; }
+      .app .bar .segmented-control .control-item {
+        background-color: rgba(0, 0, 0, 0.75);
+        border-color: #666666;
+        color: #d53301; }
+        .app .bar .segmented-control .control-item.active {
+          background-color: #d53301;
+          color: white; }
   .app .table-view {
-    background: none; }
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid #666666; }
   .app .table-view-cell {
     border: none;
     background: none; }
