@@ -1,3 +1,29 @@
+$colorWhite: #ffffff;
+
+.app{
+  background: url('../img/MainAppBackground.scale-240.png') center center no-repeat;
+  background-size: cover;
+  color: $colorWhite;
+
+  .wobg{
+    background: none;
+  }
+
+  .bar{
+    border: none;
+  }
+
+  .table-view{
+    background: none;
+  }
+
+  .table-view-cell{
+    border: none;
+    background: none;
+
+  }
+}
+
 .signal {
   li {
     list-style: none;

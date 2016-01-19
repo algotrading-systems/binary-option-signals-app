@@ -1,3 +1,17 @@
+.app {
+  background: url("../img/MainAppBackground.scale-240.png") center center no-repeat;
+  background-size: cover;
+  color: #ffffff; }
+  .app .wobg {
+    background: none; }
+  .app .bar {
+    border: none; }
+  .app .table-view {
+    background: none; }
+  .app .table-view-cell {
+    border: none;
+    background: none; }
+
 .signal li {
   list-style: none;
   display: inline-block; }
