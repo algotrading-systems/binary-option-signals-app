@@ -6,7 +6,7 @@ var SignalsTable = React.createClass({
             { signals.map(function(signal){
                 var directionClassName = 'direction direction-' + signal.direction.toString().toLowerCase();
                 var reliabilityClassName = 'reliability reliability-' + signal.reliability;
-                return <li className="table-view-cell">
+                return <li key={signal.key} className="table-view-cell">
                     <ul className="signal">
                         <li className="symbol">{signal.symbol}</li>
                         <li className={directionClassName}>{signal.direction}</li>

@@ -30,7 +30,6 @@
             };
             signals.push(signal);
         }
-        console.log(signals);
         return signals;
     };
 
