@@ -41,12 +41,25 @@ html, body {
   .table-view-cell{
     border: none;
     background: none;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
+  .table-view-divider {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-weight: 500;
+    color: #999;
+    background-color: $colorGrey;
+    border-top: 1px solid $colorGrey;
+    border-bottom: 1px solid $colorGrey;
   }
 }
 
 .signal {
   li {
+    padding-top: 8px;
+    padding-bottom: 8px;
     list-style: none;
     display: inline-block;
     &.symbol{
@@ -64,14 +77,14 @@ html, body {
       }
     }
     &.time{
-      width: 25%;
+      width: 15%;
     }
     &.reliability{
-      width: 25%;
+      width: 35%;
       @for $i from 0 through 10 {
         &.reliability-#{$i} {
           background: url('../img/levels/336x158/level_#{$i}.png') center center no-repeat;
-          background-size: contain;
+          background-size: 100% 100%;
         }
       }
     }

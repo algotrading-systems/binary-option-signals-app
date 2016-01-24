@@ -33,7 +33,7 @@
         return signals;
     };
 
-    var signals = getSignals(10);
+    var signals = getSignals(30);
 
     ReactDOM.render(
         React.createElement(SignalsTable, {signals: signals}),

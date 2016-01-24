@@ -4,7 +4,7 @@ html, body {
 .app {
   background: url("../img/MainAppBackground.scale-240.png") center center no-repeat;
   background-size: cover;
-  color: white; }
+  color: #ffffff; }
   .app .bar {
     border: none;
     background-color: rgba(0, 0, 0, 0.5); }
@@ -14,18 +14,30 @@ html, body {
       .app .bar .segmented-control .control-item {
         background-color: rgba(0, 0, 0, 0.75);
         border-color: #666666;
-        color: #d53301; }
+        color: #D53301; }
         .app .bar .segmented-control .control-item.active {
-          background-color: #d53301;
-          color: white; }
+          background-color: #D53301;
+          color: #ffffff; }
   .app .table-view {
     background: rgba(0, 0, 0, 0.75);
     border: 1px solid #666666; }
   .app .table-view-cell {
     border: none;
-    background: none; }
+    background: none;
+    padding-top: 0;
+    padding-bottom: 0; }
+  .app .table-view-divider {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-weight: 500;
+    color: #999;
+    background-color: #666666;
+    border-top: 1px solid #666666;
+    border-bottom: 1px solid #666666; }
 
 .signal li {
+  padding-top: 8px;
+  padding-bottom: 8px;
   list-style: none;
   display: inline-block; }
   .signal li.symbol {
@@ -39,39 +51,41 @@ html, body {
       background: url("../img/arrows/336x158/down.png") center center no-repeat;
       background-size: contain; }
   .signal li.time {
-    width: 25%; }
+    width: 15%; }
   .signal li.reliability {
-    width: 25%; }
+    width: 35%; }
     .signal li.reliability.reliability-0 {
       background: url("../img/levels/336x158/level_0.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
     .signal li.reliability.reliability-1 {
       background: url("../img/levels/336x158/level_1.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
     .signal li.reliability.reliability-2 {
       background: url("../img/levels/336x158/level_2.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
     .signal li.reliability.reliability-3 {
       background: url("../img/levels/336x158/level_3.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
     .signal li.reliability.reliability-4 {
       background: url("../img/levels/336x158/level_4.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
     .signal li.reliability.reliability-5 {
       background: url("../img/levels/336x158/level_5.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
     .signal li.reliability.reliability-6 {
       background: url("../img/levels/336x158/level_6.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
     .signal li.reliability.reliability-7 {
       background: url("../img/levels/336x158/level_7.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
     .signal li.reliability.reliability-8 {
       background: url("../img/levels/336x158/level_8.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
     .signal li.reliability.reliability-9 {
       background: url("../img/levels/336x158/level_9.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
     .signal li.reliability.reliability-10 {
       background: url("../img/levels/336x158/level_10.png") center center no-repeat;
-      background-size: contain; }
+      background-size: 100% 100%; }
+
+/*# sourceMappingURL=app.css.map */

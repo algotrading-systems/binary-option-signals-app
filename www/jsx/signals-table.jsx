@@ -3,6 +3,15 @@ var SignalsTable = React.createClass({
         var signals = this.props.signals;
         return (
             <ul className="table-view" id="signals-table">
+                <li className="table-view-cell">
+                    <ul className="signal header">
+                        <li className="symbol">Symbol</li>
+                        <li className="direction">Option type</li>
+                        <li className="time">Time</li>
+                        <li className="reliability">Reliabilty</li>
+                    </ul>
+                </li>
+                <li className="table-view-divider"></li>
             { signals.map(function(signal){
                 var directionClassName = 'direction direction-' + signal.direction.toString().toLowerCase();
                 var reliabilityClassName = 'reliability reliability-' + signal.reliability;

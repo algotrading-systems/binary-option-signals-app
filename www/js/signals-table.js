@@ -8,6 +8,35 @@ var SignalsTable = React.createClass({
         return React.createElement(
             "ul",
             { className: "table-view", id: "signals-table" },
+            React.createElement(
+                "li",
+                { className: "table-view-cell" },
+                React.createElement(
+                    "ul",
+                    { className: "signal header" },
+                    React.createElement(
+                        "li",
+                        { className: "symbol" },
+                        "Symbol"
+                    ),
+                    React.createElement(
+                        "li",
+                        { className: "direction" },
+                        "Option type"
+                    ),
+                    React.createElement(
+                        "li",
+                        { className: "time" },
+                        "Time"
+                    ),
+                    React.createElement(
+                        "li",
+                        { className: "reliability" },
+                        "Reliabilty"
+                    )
+                )
+            ),
+            React.createElement("li", { className: "table-view-divider" }),
             signals.map(function (signal) {
                 var directionClassName = 'direction direction-' + signal.direction.toString().toLowerCase();
                 var reliabilityClassName = 'reliability reliability-' + signal.reliability;
