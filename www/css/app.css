@@ -5,21 +5,33 @@ html, body {
   background: url("../img/MainAppBackground.scale-240.png") center center no-repeat;
   background-size: cover;
   color: #ffffff; }
+  .app a {
+    color: #D53301; }
+  .app .content {
+    background: none; }
+  .app .content-padded {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #666666; }
   .app .bar {
     border: none;
-    background-color: rgba(0, 0, 0, 0.5); }
+    background: none; }
     .app .bar .segmented-control {
-      background-color: rgba(0, 0, 0, 0.5);
+      background: none;
       border-color: #666666; }
       .app .bar .segmented-control .control-item {
-        background-color: rgba(0, 0, 0, 0.75);
+        background-color: rgba(0, 0, 0, 0.5);
         border-color: #666666;
         color: #D53301; }
         .app .bar .segmented-control .control-item.active {
           background-color: #D53301;
           color: #ffffff; }
+  .app .card {
+    background: none;
+    border: none; }
+    .app .card p {
+      color: #ffffff; }
   .app .table-view {
-    background: rgba(0, 0, 0, 0.75);
+    background: none;
     border: 1px solid #666666; }
   .app .table-view-cell {
     border: none;
@@ -43,17 +55,21 @@ html, body {
   .signal li.symbol {
     width: 25%; }
   .signal li.direction {
-    width: 25%; }
-    .signal li.direction.direction-up {
-      background: url("../img/arrows/336x158/up.png") center center no-repeat;
+    width: 25%;
+    text-align: left;
+    padding-left: 96px; }
+    .signal li.direction.direction-call {
+      background: url("../img/arrows/336x158/up.png") center left no-repeat;
       background-size: contain; }
-    .signal li.direction.direction-down {
-      background: url("../img/arrows/336x158/down.png") center center no-repeat;
+    .signal li.direction.direction-put {
+      background: url("../img/arrows/336x158/down.png") left center no-repeat;
       background-size: contain; }
   .signal li.time {
+    text-align: center;
     width: 15%; }
   .signal li.reliability {
-    width: 35%; }
+    width: 35%;
+    text-align: center; }
     .signal li.reliability.reliability-0 {
       background: url("../img/levels/336x158/level_0.png") center center no-repeat;
       background-size: 100% 100%; }

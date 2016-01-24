@@ -13,15 +13,28 @@ html, body {
   background-size: cover;
   color: $colorWhite;
 
+  a{
+    color: $colorOrange;
+  }
+
+  .content{
+    background: none;
+  }
+
+  .content-padded{
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid $colorGrey;
+  }
+
   .bar{
     border: none;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: none;
 
     .segmented-control{
-      background-color: rgba(0, 0, 0, 0.5);
+      background: none;
       border-color: $colorGrey;
       .control-item{
-        background-color: rgba(0, 0, 0, 0.75);
+        background-color: rgba(0, 0, 0, 0.5);
         border-color: $colorGrey;
         color: $colorOrange;
         &.active{
@@ -33,8 +46,16 @@ html, body {
 
   }
 
+  .card{
+    background: none;
+    border: none;
+    p{
+      color: $colorWhite;
+    }
+  }
+
   .table-view{
-    background: rgba(0, 0, 0, 0.75);
+    background: none;
     border: 1px solid $colorGrey;
   }
 
@@ -67,20 +88,24 @@ html, body {
     }
     &.direction{
       width: 25%;
-      &.direction-up{
-        background: url('../img/arrows/336x158/up.png') center center no-repeat;
+      text-align: left;
+      padding-left: 96px;
+      &.direction-call{
+        background: url('../img/arrows/336x158/up.png') center left no-repeat;
         background-size: contain;
       }
-      &.direction-down{
-        background: url('../img/arrows/336x158/down.png') center center no-repeat;
+      &.direction-put{
+        background: url('../img/arrows/336x158/down.png') left center no-repeat;
         background-size: contain;
       }
     }
     &.time{
+      text-align: center;
       width: 15%;
     }
     &.reliability{
       width: 35%;
+      text-align: center;
       @for $i from 0 through 10 {
         &.reliability-#{$i} {
           background: url('../img/levels/336x158/level_#{$i}.png') center center no-repeat;
