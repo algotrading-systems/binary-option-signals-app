@@ -36,8 +36,7 @@ html, body {
   .app .table-view-cell {
     border: none;
     background: none;
-    padding-top: 0;
-    padding-bottom: 0; }
+    padding: 0; }
   .app .table-view-divider {
     padding-top: 1px;
     padding-bottom: 1px;
@@ -46,6 +45,10 @@ html, body {
     background-color: #666666;
     border-top: 1px solid #666666;
     border-bottom: 1px solid #666666; }
+  .app #signals-table {
+    padding: 0; }
+    .app #signals-table ul.signal {
+      padding: 0; }
 
 .signal li {
   padding-top: 8px;

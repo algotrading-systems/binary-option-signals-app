@@ -62,8 +62,7 @@ html, body {
   .table-view-cell{
     border: none;
     background: none;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
   }
 
   .table-view-divider {
@@ -74,6 +73,14 @@ html, body {
     background-color: $colorGrey;
     border-top: 1px solid $colorGrey;
     border-bottom: 1px solid $colorGrey;
+  }
+
+
+  #signals-table{
+    padding: 0;
+    ul.signal{
+      padding: 0;
+    }
   }
 }
 
