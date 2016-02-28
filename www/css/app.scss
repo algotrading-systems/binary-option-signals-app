@@ -28,8 +28,7 @@ html, body {
 
   .bar{
     border: none;
-    background: none;
-
+    background: black;
     .segmented-control{
       background: none;
       border-color: $colorGrey;
@@ -90,11 +89,13 @@ html, body {
     padding-bottom: 8px;
     list-style: none;
     display: inline-block;
+    text-align: center;
+    vertical-align: middle;
     &.symbol{
       width: 25%;
     }
     &.direction{
-      width: 25%;
+      width: 20%;
       &.direction-call{
         color: $colorGreen;
       }
@@ -103,16 +104,14 @@ html, body {
       }
     }
     &.time{
-      text-align: center;
-      width: 15%;
+      width: 25%;
     }
     &.reliability{
-      width: 35%;
-      text-align: center;
+      width: 30%;
       @for $i from 0 through 10 {
         &.reliability-#{$i} {
           background: url('../img/levels/336x158/level_#{$i}.png') center center no-repeat;
-          background-size: 100% 100%;
+          background-size: 75% 75%;
         }
       }
     }

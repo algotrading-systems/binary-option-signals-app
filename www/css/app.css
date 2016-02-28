@@ -14,7 +14,7 @@ html, body {
     border: 1px solid #666666; }
   .app .bar {
     border: none;
-    background: none; }
+    background: black; }
     .app .bar .segmented-control {
       background: none;
       border-color: #666666; }
@@ -54,53 +54,53 @@ html, body {
   padding-top: 8px;
   padding-bottom: 8px;
   list-style: none;
-  display: inline-block; }
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle; }
   .signal li.symbol {
     width: 25%; }
   .signal li.direction {
-    width: 25%; }
+    width: 20%; }
     .signal li.direction.direction-call {
       color: #6ADC00; }
     .signal li.direction.direction-put {
       color: #D53301; }
   .signal li.time {
-    text-align: center;
-    width: 15%; }
+    width: 25%; }
   .signal li.reliability {
-    width: 35%;
-    text-align: center; }
+    width: 30%; }
     .signal li.reliability.reliability-0 {
       background: url("../img/levels/336x158/level_0.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
     .signal li.reliability.reliability-1 {
       background: url("../img/levels/336x158/level_1.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
     .signal li.reliability.reliability-2 {
       background: url("../img/levels/336x158/level_2.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
     .signal li.reliability.reliability-3 {
       background: url("../img/levels/336x158/level_3.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
     .signal li.reliability.reliability-4 {
       background: url("../img/levels/336x158/level_4.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
     .signal li.reliability.reliability-5 {
       background: url("../img/levels/336x158/level_5.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
     .signal li.reliability.reliability-6 {
       background: url("../img/levels/336x158/level_6.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
     .signal li.reliability.reliability-7 {
       background: url("../img/levels/336x158/level_7.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
     .signal li.reliability.reliability-8 {
       background: url("../img/levels/336x158/level_8.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
     .signal li.reliability.reliability-9 {
       background: url("../img/levels/336x158/level_9.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
     .signal li.reliability.reliability-10 {
       background: url("../img/levels/336x158/level_10.png") center center no-repeat;
-      background-size: 100% 100%; }
+      background-size: 75% 75%; }
 
 /*# sourceMappingURL=app.css.map */

@@ -23,6 +23,16 @@ var SignalsTable = React.createClass({
                         "li",
                         { className: "direction" },
                         "Option type"
+                    ),
+                    React.createElement(
+                        "li",
+                        { className: "time" },
+                        "Time"
+                    ),
+                    React.createElement(
+                        "li",
+                        { className: "reliability" },
+                        "Reliability"
                     )
                 )
             ),
@@ -45,6 +55,16 @@ var SignalsTable = React.createClass({
                             "li",
                             { className: directionClassName },
                             signal.direction
+                        ),
+                        React.createElement(
+                            "li",
+                            { className: "time" },
+                            signal.time
+                        ),
+                        React.createElement(
+                            "li",
+                            { className: reliabilityClassName },
+                            " "
                         )
                     )
                 );

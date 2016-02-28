@@ -7,6 +7,8 @@ var SignalsTable = React.createClass({
                     <ul className="signal header">
                         <li className="symbol">Symbol</li>
                         <li className="direction">Option type</li>
+                        <li className="time">Time</li>
+                        <li className="reliability">Reliability</li>
                     </ul>
                 </li>
                 <li className="table-view-divider"></li>
@@ -17,6 +19,8 @@ var SignalsTable = React.createClass({
                     <ul className="signal">
                         <li className="symbol">{signal.symbol}</li>
                         <li className={directionClassName}>{signal.direction}</li>
+                        <li className="time">{signal.time}</li>
+                        <li className={reliabilityClassName}>&nbsp;</li>
                     </ul>
                 </li>;
             }) }
