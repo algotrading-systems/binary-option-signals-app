@@ -58,15 +58,11 @@ html, body {
   .signal li.symbol {
     width: 25%; }
   .signal li.direction {
-    width: 25%;
-    text-align: left;
-    padding-left: 96px; }
+    width: 25%; }
     .signal li.direction.direction-call {
-      background: url("../img/arrows/336x158/up.png") center left no-repeat;
-      background-size: contain; }
+      color: #6ADC00; }
     .signal li.direction.direction-put {
-      background: url("../img/arrows/336x158/down.png") left center no-repeat;
-      background-size: contain; }
+      color: #D53301; }
   .signal li.time {
     text-align: center;
     width: 15%; }
