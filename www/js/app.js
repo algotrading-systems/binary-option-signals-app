@@ -33,17 +33,22 @@
         return signals;
     };
 
-    var signals = getSignals(30);
+    var initSignalsTable = function(){
+        console.log('Signals table initialization...');
+        var signals = getSignals(30);
+        ReactDOM.render(
+            React.createElement(SignalsTable, {signals: signals}),
+            window.document.getElementById('signals-table-container')
+        );
+    };
 
-    ReactDOM.render(
-        React.createElement(SignalsTable, {signals: signals}),
-        window.document.getElementById('signals-table-container')
-    );
+    initSignalsTable();
 
     $('.segmented-control a').click(function () {
         $('.segmented-control a').removeClass('active');
         $(this).addClass('active');
         var timeFrame = $(this).data('timeFrame');
+        initSignalsTable();
     });
 
 })(window);
