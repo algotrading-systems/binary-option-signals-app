@@ -77,6 +77,5 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
-    <gap:platform name="winphone" />
     <platform name="winphone" />
 </widget>
