@@ -14,41 +14,55 @@
 
 (function (window) {
 
-    var getSignals = function(count){
-        var symbols = ['USDJPY', 'EURUSD', 'Silver', 'Gold'];
-        var directions = ['Call', 'Put'];
-        var reliabilities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        var signals = [];
-        count = count || 10;
-        for(var i = 0; i < count; i++){
-            var signal = {
-                key: i + 1,
-                symbol: $.rand(symbols),
-                direction: $.rand(directions),
-                time: (new Date()).toTimeString().substr(0, 8),
-                reliability: $.rand(reliabilities)
-            };
-            signals.push(signal);
-        }
-        return signals;
-    };
+    // Symbols dictionary
+    window.symbols = {};
+    // Loaded signals storage
+    window.signals = {};
 
-    var initSignalsTable = function(){
-        console.log('Signals table initialization...');
-        var signals = getSignals(30);
+    var initSignalsTable = function(signals){
+        console && console.log('Signals table initialization...');
         ReactDOM.render(
             React.createElement(SignalsTable, {signals: signals}),
             window.document.getElementById('signals-table-container')
         );
     };
 
-    initSignalsTable();
-
     $('.segmented-control a').click(function () {
         $('.segmented-control a').removeClass('active');
         $(this).addClass('active');
         var timeFrame = $(this).data('timeFrame');
-        initSignalsTable();
     });
+
+    var client = new $.RestClient('http://platform.algotrading.systems/api/', {
+        cache: 15,
+        cachableMethods: ["GET"]
+    });
+
+    client.add('symbols');
+    client.add('signals');
+
+    client.symbols.read().done(function(data){
+        for(var i in data.symbols){
+            symbols[data.symbols[i].id] = data.symbols[i];
+        }
+        console && console.log('Symbols dictionary initialized successfully.');
+        client.signals.read().done(function(data) {
+            var signals = [];
+            for(var i in data.signals){
+                var signal = data.signals[i];
+                var symbolId = signal.symbol_id;
+                var direction = (signal.direction == 'Up') ? 'Call' : 'Put';
+                signals.push({
+                    key: signal.id,
+                    symbol: window.symbols[symbolId].name,
+                    direction: direction,
+                    time: (new Date(signal.created_at)).toTimeString().substr(0, 8),
+                    reliability: signal.id % 11
+                });
+            }
+            initSignalsTable(signals);
+        });
+    });
+
 
 })(window);
