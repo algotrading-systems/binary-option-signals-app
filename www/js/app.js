@@ -18,11 +18,13 @@
     window.symbols = {};
     // Loaded signals storage
     window.signals = {};
+    // Signals table object for easy data manipulation
+    window.signalsTable = null;
 
     var initSignalsTable = function(signals){
         console && console.log('Signals table initialization...');
-        ReactDOM.render(
-            React.createElement(SignalsTable, {signals: signals}),
+        window.signalsTable = ReactDOM.render(
+            React.createElement(SignalsTable, {signals: signals, start: Date.now()}),
             window.document.getElementById('signals-table-container')
         );
     };
@@ -41,14 +43,25 @@
     client.add('symbols');
     client.add('signals');
 
+    var timer = null;
+
+    var feed = function(){
+        var signal = window.signals[window.signals.length - 1];
+        window.signals.splice(window.signals.length - 1);
+        window.signalsTable.addSignal(signal);
+        if (!window.signals.length){
+            clearInterval(timer);
+        }
+    };
+
     client.symbols.read().done(function(data){
         for(var i in data.symbols){
             symbols[data.symbols[i].id] = data.symbols[i];
         }
         console && console.log('Symbols dictionary initialized successfully.');
         client.signals.read().done(function(data) {
-            var signals = [];
-            for(var i in data.signals){
+            window.signals = [];
+            for (var i in data.signals) {
                 var signal = data.signals[i];
                 var symbolId = signal.symbol_id;
                 var direction = (signal.direction == 'Up') ? 'Call' : 'Put';
@@ -59,8 +72,12 @@
                     time: signal.created_at.substr(11, 8),
                     reliability: signal.id % 11
                 });
+                if (i > 10){
+                    break;
+                }
             }
-            initSignalsTable(signals);
+            initSignalsTable([]);
+            timer = setInterval(feed, 1000);
         });
     });
 
