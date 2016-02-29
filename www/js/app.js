@@ -56,7 +56,7 @@
                     key: signal.id,
                     symbol: window.symbols[symbolId].name,
                     direction: direction,
-                    time: (new Date(signal.created_at)).toTimeString().substr(0, 8),
+                    time: signal.created_at.substr(11, 8),
                     reliability: signal.id % 11
                 });
             }
