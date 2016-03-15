@@ -1,21 +1,48 @@
 var SignalsTable = React.createClass({
 
+    // This function returns seconds count before next signals arriving.
+    getElapsedTime: function(){
+        // console.log('getElapsedTime()', this.state.signals, this.state.interval);
+        // Birth time of recent signal in milliseconds
+        var maxSignalTime = 0;
+
+        // Walk through all signals to calc max signal time
+        for (var i = 0; i < this.state.signals.length; i++) {
+            maxSignalTime = Math.max(this.state.signals[i].tsMs, maxSignalTime);
+        }
+        maxSignalTime += 3600000;
+
+        // Time when new signal will arrived.
+        var signalsArrivingTime = maxSignalTime + this.state.interval;
+
+        var elapsedTime = signalsArrivingTime - new Date();
+        // console.log('Max signal time:', maxSignalTime);
+        // console.log('Time:           ', +new Date());
+        // console.log('Interval:', this.state.interval);
+        // console.log('Elapsed time:', elapsedTime);
+
+        return Math.max(0, elapsedTime);
+    },
+
     getInitialState: function(){
-        console.log('getInitialState');
-        return { elapsed: 0, start: Date.now() };
+        // console.log('getInitialState');
+        return {
+            elapsed: 0
+            , signals: this.props.signals
+            , interval: this.props.interval
+        };
     },
 
     componentDidMount: function(){
-        // this.timer = setInterval(this.tick, 1000);
+        this.timer = setInterval(this.tick, 500);
     },
-
 
     componentWillUnmount: function(){
         clearInterval(this.timer);
     },
 
     tick: function(){
-        this.setState({elapsed: new Date() - this.props.start});
+        this.setState({elapsed: this.getElapsedTime()});
     },
 
     addSignal: function (signal) {
@@ -25,15 +52,14 @@ var SignalsTable = React.createClass({
     },
 
     render: function() {
-        var elapsed = Math.round(this.state.elapsed / 100);
         // Это даст нам число с одной цифрой после запятой dot (xx.x):
-        var seconds = (elapsed / 10).toFixed(1);
-        console.log('SignalsTable properties:', this.props);
+        var elapsedString = (this.state.elapsed / 1000).toFixed(3) + ' seconds';
+        // console.log('SignalsTable properties:', this.props);
         var signals = this.props.signals;
         return (
             <ul className="table-view" id="signals-table">
                 <li className="table-view-cell">
-                    <p>This example was started <b>{seconds} seconds</b> ago.</p>
+                    <p>Next update in <b>{elapsedString}</b></p>
                 </li>
                 <li className="table-view-cell">
                     <ul className="signal header">
@@ -49,7 +75,7 @@ var SignalsTable = React.createClass({
                 var reliabilityClassName = 'reliability reliability-' + signal.reliability;
                 return <li key={signal.key} className="table-view-cell">
                     <ul className="signal">
-                        <li className="symbol">{signal.symbol}</li>
+                        <li className="symbol">{signal.symbol} #{signal.key}</li>
                         <li className={directionClassName}>{signal.direction}</li>
                         <li className="time">{signal.time}</li>
                         <li className={reliabilityClassName}>&nbsp;</li>
