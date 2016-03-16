@@ -15,6 +15,18 @@
     // Max signals count. We should not store old or expired signals.
     window.maxSignalsCount = 10;
 
+    var loadedSignalsCount = 0;
+
+    var loadSignal = function(signal){
+        if (updateMaxSignalId(signal.id) < window.maxSignalId && loadedSignalsCount >= window.maxSignalsCount) {
+            // console.log('Signal #' + signal.id + ' skipped');
+            return false;
+        }
+        console.log('Signal #' + signal.id + ' loaded');
+        loadedSignalsCount++;
+        window.signalsTable.addSignal(signal);
+    };
+
     var updateMaxSignalId = function (value) {
         window.maxSignalId = Math.max(value, window.maxSignalId);
         return value;
@@ -59,18 +71,14 @@
                 var signal = data.signals[i];
                 var symbolId = signal.symbol_id;
                 var direction = (signal.direction == 'Up') ? 'Call' : 'Put';
-                if (updateMaxSignalId(signal.id) < window.maxSignalId) {
-                    // console.log('Signal #' + signal.id + ' skipped');
-                    continue;
-                }
-                console.log('Signal #' + signal.id + ' will be added.');
-                window.signalsTable.addSignal({
+                loadSignal({
                     key: signal.id
+                    , id: signal.id
                     , symbol: window.symbols[symbolId].name
                     , direction: direction
                     , time: signal.created_at.substr(11, 8)
                     , reliability: signal.reliability
-                    , tsMs: +new Date(signal.created_at)
+                    , tsMs: +new Date(signal.created_at) - (new Date).getTimezoneOffset() * 1000 * 60
                 });
             }
         });

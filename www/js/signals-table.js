@@ -14,7 +14,6 @@ var SignalsTable = React.createClass({
         for (var i = 0; i < this.state.signals.length; i++) {
             maxSignalTime = Math.max(this.state.signals[i].tsMs, maxSignalTime);
         }
-        maxSignalTime += 3600000;
 
         // Time when new signal will arrived.
         var signalsArrivingTime = maxSignalTime + this.state.interval;
