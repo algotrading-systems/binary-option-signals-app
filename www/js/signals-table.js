@@ -115,7 +115,7 @@ var SignalsTable = React.createClass({
                 var lifeTimePercent = that.getElapsedTime(signal.tsMs) / lifeTime * 100;
                 return React.createElement(
                     "li",
-                    { className: "table-view-cell" },
+                    { key: signal.key, className: "table-view-cell" },
                     React.createElement(
                         "ul",
                         { className: "signal" },
