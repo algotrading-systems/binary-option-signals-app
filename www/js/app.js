@@ -12,6 +12,10 @@
     window.signalsTable = null;
     // Max loaded symbol's ID.
     window.maxSignalId = 0;
+    // Max loaded signal time (timestamp in milliseconds)
+    var maxSignalTime = 0;
+    // Max delay for server response retrieving
+    var maxServerDelay = 2000;
     // Max signals count. We should not store old or expired signals.
     window.maxSignalsCount = 10;
 
@@ -24,6 +28,7 @@
         }
         console.log('Signal #' + signal.id + ' loaded');
         loadedSignalsCount++;
+        updateMaxSignalTime(signal);
         window.signalsTable.addSignal(signal);
     };
 
@@ -32,8 +37,11 @@
         return value;
     };
 
+    var updateMaxSignalTime = function(signal){
+        maxSignalTime = Math.max(signal.tsMs, maxSignalTime);
+    };
+
     var initSignalsTable = function(signals){
-        console && console.log('Signals table initialization...');
         window.signalsTable = ReactDOM.render(
             React.createElement(SignalsTable, {
                 signals: signals
@@ -44,15 +52,8 @@
         );
     };
 
-    $('.segmented-control a').click(function () {
-        $('.segmented-control a').removeClass('active');
-        $(this).addClass('active');
-        var timeFrame = $(this).data('timeFrame');
-    });
-
     var client = new $.RestClient('http://algotrading.space/api/', {
-        cache: false
-        // cachableMethods: ["GET"]
+        cache: 5
     });
 
     // Assign our symbols with API endpoint
@@ -62,10 +63,7 @@
 
     initSignalsTable([]);
 
-    var timer = null;
-
     var feed = function() {
-        console.log('feed');
         client.signals.read( window.tradeSystemSlug ).done(function(data) {
             for (var i in data.signals) {
                 var signal = data.signals[i];
@@ -81,6 +79,7 @@
                     , tsMs: +new Date(signal.created_at) - (new Date).getTimezoneOffset() * 1000 * 60
                 });
             }
+            setTimeout(feed, maxSignalTime + window.tradeSystemInverval -new Date() + maxServerDelay);
         });
     };
 
@@ -89,10 +88,6 @@
         for(var i in data.symbols){
             symbols[data.symbols[i].id] = data.symbols[i];
         }
-        console && console.log('Symbols dictionary initialized successfully.', window.tradeSystemInverval + 3000);
-
-        timer = setInterval(feed, window.tradeSystemInverval + 3000);
-
         feed();
     });
 
