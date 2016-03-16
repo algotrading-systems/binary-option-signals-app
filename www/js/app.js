@@ -26,7 +26,6 @@
             // console.log('Signal #' + signal.id + ' skipped');
             return false;
         }
-        console.log('Signal #' + signal.id + ' loaded');
         loadedSignalsCount++;
         updateMaxSignalTime(signal);
         window.signalsTable.addSignal(signal);
