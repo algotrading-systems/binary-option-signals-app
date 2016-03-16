@@ -47,6 +47,14 @@ var SignalsTable = React.createClass({
     addSignal: function (signal) {
         var signals = this.props.signals;
         signals.unshift(signal);
+        signals.sort(function (a, b) {
+            if (a.id < b.id) {
+                return 1;
+            } else if (a.id > b.id) {
+                return -1;
+            }
+            return 0;
+        });
         this.setState({signals: signals});
     },
 
