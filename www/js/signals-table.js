@@ -4,31 +4,25 @@ var SignalsTable = React.createClass({
     displayName: "SignalsTable",
 
 
-    // This function returns seconds count before next signals arriving.
-    getElapsedTime: function getElapsedTime() {
-        // console.log('getElapsedTime()', this.state.signals, this.state.interval);
+    /**
+     * This function returns seconds count before next signals arriving.
+     */
+    getElapsedTime: function getElapsedTime(maxSignalTime) {
         // Birth time of recent signal in milliseconds
-        var maxSignalTime = 0;
-
+        maxSignalTime = maxSignalTime || 0;
         // Walk through all signals to calc max signal time
-        for (var i = 0; i < this.state.signals.length; i++) {
-            maxSignalTime = Math.max(this.state.signals[i].tsMs, maxSignalTime);
+        if (maxSignalTime == 0) {
+            for (var i = 0; i < this.state.signals.length; i++) {
+                maxSignalTime = Math.max(this.state.signals[i].tsMs, maxSignalTime);
+            }
         }
-
         // Time when new signal will arrived.
         var signalsArrivingTime = maxSignalTime + this.state.interval;
-
         var elapsedTime = signalsArrivingTime - new Date();
-        // console.log('Max signal time:', maxSignalTime);
-        // console.log('Time:           ', +new Date());
-        // console.log('Interval:', this.state.interval);
-        // console.log('Elapsed time:', elapsedTime);
-
         return Math.max(0, elapsedTime);
     },
 
     getInitialState: function getInitialState() {
-        // console.log('getInitialState');
         return {
             elapsed: 0,
             signals: this.props.signals,
@@ -37,7 +31,7 @@ var SignalsTable = React.createClass({
     },
 
     componentDidMount: function componentDidMount() {
-        this.timer = setInterval(this.tick, 500);
+        this.timer = setInterval(this.tick, 37);
     },
 
     componentWillUnmount: function componentWillUnmount() {
@@ -67,6 +61,7 @@ var SignalsTable = React.createClass({
         var elapsedString = (this.state.elapsed / 1000).toFixed(3) + ' seconds';
         // console.log('SignalsTable properties:', this.props);
         var signals = this.props.signals;
+        var that = this;
         return React.createElement(
             "ul",
             { className: "table-view", id: "signals-table" },
@@ -116,18 +111,18 @@ var SignalsTable = React.createClass({
             signals.map(function (signal) {
                 var directionClassName = 'direction direction-' + signal.direction.toString().toLowerCase();
                 var reliabilityClassName = 'reliability reliability-' + signal.reliability;
+                var lifeTime = 60 * 1000;
+                var lifeTimePercent = that.getElapsedTime(signal.tsMs) / lifeTime * 100;
                 return React.createElement(
                     "li",
-                    { key: signal.key, className: "table-view-cell" },
+                    { className: "table-view-cell" },
                     React.createElement(
                         "ul",
                         { className: "signal" },
                         React.createElement(
                             "li",
                             { className: "symbol" },
-                            signal.symbol,
-                            " #",
-                            signal.key
+                            signal.symbol
                         ),
                         React.createElement(
                             "li",
@@ -143,6 +138,17 @@ var SignalsTable = React.createClass({
                             "li",
                             { className: reliabilityClassName },
                             " "
+                        )
+                    ),
+                    React.createElement(
+                        "div",
+                        { className: "signalMeta" },
+                        "#",
+                        signal.key,
+                        React.createElement(
+                            "div",
+                            { className: "signalLifeTime" },
+                            React.createElement("div", { className: "signalLifeTimeBar", style: { width: lifeTimePercent + '%' } })
                         )
                     )
                 );

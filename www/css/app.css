@@ -103,4 +103,12 @@ html, body {
       background: url("../img/levels/336x158/level_10.png") center center no-repeat;
       background-size: 75% 75%; }
 
+.signalLifeTime {
+  background: #666666;
+  height: 10px; }
+  .signalLifeTime .signalLifeTimeBar {
+    background: #6ADC00;
+    width: 10%;
+    height: 100%; }
+
 /*# sourceMappingURL=app.css.map */

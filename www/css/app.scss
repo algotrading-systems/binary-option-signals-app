@@ -117,3 +117,15 @@ html, body {
     }
   }
 }
+
+.signalLifeTime{
+
+  background: $colorGrey;
+  height: 10px;
+
+  .signalLifeTimeBar{
+    background: $colorGreen;
+    width: 10%;
+    height: 100%;
+  }
+}
