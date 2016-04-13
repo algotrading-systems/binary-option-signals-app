@@ -72,7 +72,12 @@
                     , tsMs: +new Date(signal.created_at) - (new Date).getTimezoneOffset() * 1000 * 60
                 });
             }
-            setTimeout(feed, maxSignalTime + tradeSystemInverval -new Date() + maxServerDelay);
+            var timeout = maxSignalTime + tradeSystemInverval -new Date() + maxServerDelay;
+            var clock = $('#timer').FlipClock(timeout / 1000, {
+                countdown: true,
+                clockFace: 'MinuteCounter'
+            });
+            setTimeout(feed, timeout);
         });
     };
 

@@ -59,26 +59,11 @@ var SignalsTable = React.createClass({
     render: function render() {
         // Это даст нам число с одной цифрой после запятой dot (xx.x):
         var elapsedString = (this.state.elapsed / 1000).toFixed(3) + ' seconds';
-        // console.log('SignalsTable properties:', this.props);
         var signals = this.props.signals;
         var that = this;
         return React.createElement(
             "ul",
             { className: "table-view", id: "signals-table" },
-            React.createElement(
-                "li",
-                { className: "table-view-cell" },
-                React.createElement(
-                    "p",
-                    null,
-                    "Next update in ",
-                    React.createElement(
-                        "b",
-                        null,
-                        elapsedString
-                    )
-                )
-            ),
             React.createElement(
                 "li",
                 { className: "table-view-cell" },

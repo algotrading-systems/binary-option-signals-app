@@ -5,19 +5,17 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="bower_components/ratchet/dist/css/ratchet.min.css" />
+        <link rel="stylesheet" type="text/css" href="bower_components/flipclock/compiled/flipclock.css" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
         <title>Binary Options Signals Source</title>
     </head>
     <body class="app">
-        <header class="bar bar-nav">
-            <div class="segmented-control">
-                <a class="control-item active" data-time-frame="900">15 min</a>
-                <a class="control-item" data-time-frame="1800">30 min</a>
-                <a class="control-item" data-time-frame="3600">1 Hour</a>
-            </div>
-        </header>
         <div class="content">
+            <div class="content-padded" id="timerContainer">
+                <div id="nextSignalsInLabel">Time for new signals:</div>
+                <div id="timer">timer</div>
+            </div>
             <div class="content-padded">
                 <div id="signals-table-container"></div>
             </div>
@@ -36,6 +34,7 @@
         <script type="text/javascript" src="bower_components/react/react.js"></script>
         <script type="text/javascript" src="bower_components/react/react-dom.js"></script>
         <script type="text/javascript" src="bower_components/ratchet/dist/js/ratchet.min.js"></script>
+        <script type="text/javascript" src="bower_components/flipclock/compiled/flipclock.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery.rest.min.js"></script>
         <script type="text/javascript" src="js/signals-table.js"></script>

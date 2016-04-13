@@ -160,3 +160,23 @@ html, body {
     }
   }
 }
+
+#timerContainer{
+  text-align: center;
+}
+
+#timer{
+  zoom: 0.35;
+  -moz-transform: scale(0.35);
+  width: 35%;
+}
+
+#nextSignalsInLabel{
+  width: 55%;
+}
+
+#nextSignalsInLabel, #timer{
+  display: inline-block;
+  padding: 0;
+  vertical-align: middle;
+}
