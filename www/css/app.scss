@@ -118,6 +118,7 @@ html, body {
       }
     }
   }
+
 }
 
 .signalMeta{
@@ -144,3 +145,18 @@ html, body {
   }
 }
 
+.table-view-cell-signal{
+  &.expired{
+    &:after{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: url('../img/expired-stamp.png') center center no-repeat;
+      background-size: 100px auto;
+      opacity: 0.8;
+    }
+  }
+}

@@ -113,9 +113,11 @@ var SignalsTable = React.createClass({
                 var reliabilityClassName = 'reliability reliability-' + signal.reliability;
                 var lifeTime = 60 * 1000;
                 var lifeTimePercent = that.getElapsedTime(signal.tsMs) / lifeTime * 100;
+                var className = 'table-view-cell table-view-cell-signal ';
+                className += lifeTimePercent > 0 ? 'active ' : 'expired ';
                 return React.createElement(
                     "li",
-                    { key: signal.key, className: "table-view-cell" },
+                    { key: signal.key, className: className },
                     React.createElement(
                         "ul",
                         { className: "signal" },

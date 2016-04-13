@@ -77,7 +77,9 @@ var SignalsTable = React.createClass({
                 var reliabilityClassName = 'reliability reliability-' + signal.reliability;
                 var lifeTime = 60 * 1000;
                 var lifeTimePercent = that.getElapsedTime(signal.tsMs) / lifeTime * 100;
-                return <li key={signal.key} className="table-view-cell">
+                var className = 'table-view-cell table-view-cell-signal ';
+                className += (lifeTimePercent > 0) ? 'active ' : 'expired ';
+                return <li key={signal.key} className={className}>
                     <ul className="signal">
                         <li className="symbol">{signal.symbol}</li>
                         <li className={directionClassName}>{signal.direction}</li>
