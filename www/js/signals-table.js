@@ -141,18 +141,22 @@ var SignalsTable = React.createClass({
                         )
                     ),
                     React.createElement(
-                        "ul",
+                        "div",
                         { className: "signalMeta" },
                         React.createElement(
-                            "li",
+                            "div",
                             { className: "signalId" },
                             "#",
                             signal.id
                         ),
                         React.createElement(
-                            "li",
-                            { className: "signalLifeTime" },
-                            React.createElement("div", { className: "signalLifeTimeBar", style: { width: lifeTimePercent + '%' } })
+                            "div",
+                            { className: "signalLifeTimeContainer" },
+                            React.createElement(
+                                "div",
+                                { className: "signalLifeTime" },
+                                React.createElement("div", { className: "signalLifeTimeBar", style: { width: lifeTimePercent + '%' } })
+                            )
                         )
                     )
                 );

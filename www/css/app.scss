@@ -4,6 +4,8 @@ $colorOrange: #D53301;
 $colorGreen: #6ADC00;
 $colorGrey: #666666;
 
+$fontSizeSmall: 8pt;
+
 html, body {
   height: 100%;
 }
@@ -23,7 +25,7 @@ html, body {
 
   .content-padded{
     background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid $colorGrey;
+    //border: 1px solid $colorGrey;
   }
 
   .bar{
@@ -55,7 +57,7 @@ html, body {
 
   .table-view{
     background: none;
-    border: 1px solid $colorGrey;
+    //border: 1px solid $colorGrey;
   }
 
   .table-view-cell{
@@ -84,9 +86,9 @@ html, body {
 }
 
 .signal {
+  margin-top: 30px;
   li {
     padding-top: 8px;
-    padding-bottom: 8px;
     list-style: none;
     display: inline-block;
     text-align: center;
@@ -118,14 +120,27 @@ html, body {
   }
 }
 
-.signalLifeTime{
-
-  background: $colorGrey;
-  height: 10px;
-
-  .signalLifeTimeBar{
-    background: $colorGreen;
-    width: 10%;
-    height: 100%;
+.signalMeta{
+  .signalId{
+    display: inline-block;
+    width: 25%;
+    font-size: $fontSizeSmall;
+    text-align: center;
+    vertical-align: baseline;
+  }
+  .signalLifeTimeContainer{
+    display: inline-block;
+    width: 75%;
+    vertical-align: baseline;
+  }
+  .signalLifeTime{
+    background: $colorGrey;
+    height: 3px;
+    .signalLifeTimeBar{
+      background: $colorGreen;
+      width: 10%;
+      height: 100%;
+    }
   }
 }
+

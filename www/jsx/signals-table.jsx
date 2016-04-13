@@ -84,14 +84,16 @@ var SignalsTable = React.createClass({
                         <li className="time">{signal.time}</li>
                         <li className={reliabilityClassName}>&nbsp;</li>
                     </ul>
-                    <ul className="signalMeta">
-                        <li className="signalId">
+                    <div className="signalMeta">
+                        <div className="signalId">
                             #{signal.id}
-                        </li>
-                        <li className="signalLifeTime">
-                            <div className="signalLifeTimeBar" style={{width: lifeTimePercent + '%'}}></div>
-                        </li>
-                    </ul>
+                        </div>
+                        <div className="signalLifeTimeContainer">
+                            <div className="signalLifeTime">
+                                <div className="signalLifeTimeBar" style={{width: lifeTimePercent + '%'}}></div>
+                            </div>
+                        </div>
+                    </div>
                 </li>;
             }) }
             </ul>
