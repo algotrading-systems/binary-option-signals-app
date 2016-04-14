@@ -53,16 +53,29 @@ var SignalsTable = React.createClass({
     },
 
     render: function() {
-        // Это даст нам число с одной цифрой после запятой dot (xx.x):
-        var elapsedString = (this.state.elapsed / 1000).toFixed(3) + ' seconds';
+        var lifeTime = 60 * 1000;
+        var elapsedString = (this.state.elapsed / 1000).toFixed(0) + ' seconds';
         var signals = this.props.signals;
         var that = this;
+
+        var nextUpdateInClasses = ['table-view-cell', 'nextUpdateIn'];
+        if (this.state.elapsed < 1) {
+            nextUpdateInClasses.push('expired');
+        }
+        if (this.state.elapsed < lifeTime * 0.25) {
+            nextUpdateInClasses.push('soon');
+        }
+        var nextUpdateInClass = nextUpdateInClasses.join(' ');
+
         return (
             <ul className="table-view" id="signals-table">
+                <li className={nextUpdateInClass}>
+                    <p>Next update in <b>{elapsedString}</b></p>
+                </li>
                 <li className="table-view-cell">
                     <ul className="signal header">
                         <li className="symbol">Symbol</li>
-                        <li className="direction">Option type</li>
+                        <li className="direction">Option</li>
                         <li className="time">Time</li>
                         <li className="reliability">Reliability</li>
                     </ul>
@@ -71,7 +84,6 @@ var SignalsTable = React.createClass({
             { signals.map(function(signal){
                 var directionClassName = 'direction direction-' + signal.direction.toString().toLowerCase();
                 var reliabilityClassName = 'reliability reliability-' + signal.reliability;
-                var lifeTime = 60 * 1000;
                 var lifeTimePercent = that.getElapsedTime(signal.tsMs) / lifeTime * 100;
                 var className = 'table-view-cell table-view-cell-signal ';
                 className += (lifeTimePercent > 0) ? 'active ' : 'expired ';

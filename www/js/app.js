@@ -73,10 +73,6 @@
                 });
             }
             var timeout = maxSignalTime + tradeSystemInverval -new Date() + maxServerDelay;
-            var clock = $('#timer').FlipClock(timeout / 1000, {
-                countdown: true,
-                clockFace: 'MinuteCounter'
-            });
             setTimeout(feed, timeout);
         });
     };

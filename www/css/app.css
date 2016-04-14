@@ -36,19 +36,28 @@ html, body {
     background: none;
     padding: 0; }
   .app .table-view-divider {
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     font-weight: 500;
     color: #999;
-    background-color: #666666;
+    background-color: transparent;
     border: none; }
   .app #signals-table {
-    padding: 0; }
+    padding: 0;
+    border: none; }
+    .app #signals-table .nextUpdateIn {
+      padding: 10px;
+      text-align: center; }
+      .app #signals-table .nextUpdateIn p {
+        color: #6adc00; }
+      .app #signals-table .nextUpdateIn.soon p {
+        color: #d53301; }
     .app #signals-table ul.signal {
       padding: 0; }
       .app #signals-table ul.signal.header {
-        background: black;
-        padding: 20px 0; }
+        background: rgba(255, 255, 255, 0.75);
+        color: black;
+        padding: 5px 0 10px 0; }
 
 .signal li {
   padding-top: 8px;
@@ -120,29 +129,19 @@ html, body {
     width: 10%;
     height: 100%; }
 
-.table-view-cell-signal.expired:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url("../img/expired-stamp.png") center center no-repeat;
-  background-size: 100px auto;
-  opacity: 0.8; }
-
-#timerContainer {
-  text-align: center; }
-
-#timer {
-  zoom: 0.35;
-  -moz-transform: scale(0.35);
-  width: 35%; }
-
-#nextSignalsInLabel {
-  width: 55%; }
-
-#nextSignalsInLabel, #timer {
-  display: inline-block;
-  padding: 0;
-  vertical-align: middle; }
+.table-view-cell-signal.expired {
+  -webkit-filter: grayscale(50%);
+  -moz-filter: grayscale(50%);
+  -ms-filter: grayscale(50%);
+  -o-filter: grayscale(50%);
+  filter: grayscale(505%); }
+  .table-view-cell-signal.expired:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("../img/expired-stamp.png") center center no-repeat;
+    background-size: 100px auto;
+    opacity: 0.8; }

@@ -65,22 +65,36 @@ html, body {
   }
 
   .table-view-divider {
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     font-weight: 500;
     color: #999;
-    background-color: $colorGrey;
+    background-color: transparent;
     border: none;
   }
 
 
   #signals-table{
     padding: 0;
+    border: none;
+    .nextUpdateIn {
+      padding: 10px;
+      text-align: center;
+      p {
+        color: $colorGreen;
+      }
+      &.soon {
+        p {
+          color: $colorOrange;
+        }
+      }
+    }
     ul.signal{
       padding: 0;
       &.header{
-        background: $colorBlack;
-        padding: 20px 0;
+        background: rgba(255, 255, 255, 0.75);
+        color: $colorBlack;
+        padding: 5px 0 10px 0;
       }
     }
   }
@@ -147,6 +161,11 @@ html, body {
 
 .table-view-cell-signal{
   &.expired{
+    -webkit-filter: grayscale(50%);
+    -moz-filter: grayscale(50%);
+    -ms-filter: grayscale(50%);
+    -o-filter: grayscale(50%);
+    filter: grayscale(505%);
     &:after{
       content: '';
       position: absolute;
@@ -159,24 +178,4 @@ html, body {
       opacity: 0.8;
     }
   }
-}
-
-#timerContainer{
-  text-align: center;
-}
-
-#timer{
-  zoom: 0.35;
-  -moz-transform: scale(0.35);
-  width: 35%;
-}
-
-#nextSignalsInLabel{
-  width: 55%;
-}
-
-#nextSignalsInLabel, #timer{
-  display: inline-block;
-  padding: 0;
-  vertical-align: middle;
 }
