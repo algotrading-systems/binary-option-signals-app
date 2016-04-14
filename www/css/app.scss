@@ -25,7 +25,6 @@ html, body {
 
   .content-padded{
     background-color: rgba(0, 0, 0, 0.5);
-    //border: 1px solid $colorGrey;
   }
 
   .bar{
@@ -57,7 +56,6 @@ html, body {
 
   .table-view{
     background: none;
-    //border: 1px solid $colorGrey;
   }
 
   .table-view-cell{
@@ -72,8 +70,7 @@ html, body {
     font-weight: 500;
     color: #999;
     background-color: $colorGrey;
-    border-top: 1px solid $colorGrey;
-    border-bottom: 1px solid $colorGrey;
+    border: none;
   }
 
 
@@ -81,12 +78,15 @@ html, body {
     padding: 0;
     ul.signal{
       padding: 0;
+      &.header{
+        background: $colorBlack;
+        padding: 20px 0;
+      }
     }
   }
 }
 
 .signal {
-  margin-top: 30px;
   li {
     padding-top: 8px;
     list-style: none;
